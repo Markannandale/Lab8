@@ -26,8 +26,9 @@ new Vue ({
   created: async function() {
     const res = await fetch('https://opentdb.com/api.php?amount=15&type=multiple');
     const data = await res.json();
-    this.question = data.question;
-    this.answerBlocks = data.incorrect_answers;
-    this.correctAnswer = data.correct_answer;
+    console.log(data.results[0]);
+    this.question = data.results[0].question;
+    this.answerBlocks = data.results[0].incorrect_answers;
+    this.correctAnswer = data.results[0].correct_answer;
   }
 })
